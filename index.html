@@ -5,11 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
 <title>Glucose Companion — Diabetes Management App</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -86,7 +84,6 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);
 
 /* ── MAIN ── */
 .main{width:100%;max-width:900px;padding:18px 16px}
-.main::after{content:'DEMO';position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);font-size:120px;font-weight:900;color:rgba(30,107,107,.04);pointer-events:none;z-index:0;letter-spacing:.2em;font-family:'Playfair Display',serif;}
 .panel{display:none}.panel.active{display:block;animation:fadeIn .2s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 
@@ -262,6 +259,7 @@ textarea{resize:vertical}
 @media(max-width:580px){
   .stats-grid{grid-template-columns:1fr 1fr}
 }
+.main::after{content:'DEMO';position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);font-size:120px;font-weight:900;color:rgba(30,107,107,.04);pointer-events:none;z-index:0;letter-spacing:.2em;font-family:'Playfair Display',serif;}
 </style>
 </head>
 <body>
@@ -975,23 +973,6 @@ document.querySelectorAll('.nb').forEach(btn=>btn.addEventListener('click',()=>s
 document.getElementById('bg-input').addEventListener('keydown',e=>{if(e.key==='Enter')logBG();});
 }
 document.addEventListener('DOMContentLoaded',init);
-document.addEventListener('contextmenu', function(e){e.preventDefault();});
-document.addEventListener('selectstart', function(e){
-if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'||e.target.tagName==='SELECT')return;
-e.preventDefault();
-});
-document.addEventListener('keydown', function(e){
-if((e.ctrlKey||e.metaKey)&&e.key==='u')e.preventDefault();
-if((e.ctrlKey||e.metaKey)&&e.shiftKey&&e.key==='I')e.preventDefault();
-});
-setInterval(function(){
-var m=document.querySelector('.main');
-if(m&&m.style.display==='none')m.style.display='';
-var f=document.querySelector('.demo-cta-float');
-if(f&&f.style.display==='none')f.style.display='';
-var b=document.querySelector('.demo-badge');
-if(b&&b.style.display==='none')b.style.display='';
-},5000);
 </script>
 
 <!-- DEMO MODALS -->
@@ -999,7 +980,7 @@ if(b&&b.style.display==='none')b.style.display='';
   <div class="demo-modal">
     <h3>Demo Limit Reached</h3>
     <p>You've reached the maximum of 3 saves in this demo version. Get the full version for unlimited tracking, reports, and more.</p>
-    <a href="#" class="btn btn-pri" style="text-decoration:none">Get Full Version</a>
+    <a href="https://www.etsy.com/fr/listing/4473664797/diabetes-tracker-app-blood-sugar-log" target="_blank" class="btn btn-pri" style="text-decoration:none">Get Full Version</a>
     <br><br>
     <button class="btn btn-ghost btn-sm" onclick="document.getElementById('demo-limit-modal').classList.remove('active')">Close</button>
   </div>
@@ -1008,12 +989,19 @@ if(b&&b.style.display==='none')b.style.display='';
   <div class="demo-modal">
     <h3>Doctor Report</h3>
     <p>The doctor report feature is available in the full version. Generate comprehensive endocrinology reports with all your data.</p>
-    <a href="#" class="btn btn-pri" style="text-decoration:none">Get Full Version</a>
+    <a href="https://www.etsy.com/fr/listing/4473664797/diabetes-tracker-app-blood-sugar-log" target="_blank" class="btn btn-pri" style="text-decoration:none">Get Full Version</a>
     <br><br>
     <button class="btn btn-ghost btn-sm" onclick="document.getElementById('demo-doctor-modal').classList.remove('active')">Close</button>
   </div>
 </div>
-<a href="#" class="demo-cta-float">Get Full Version</a>
+<a href="https://www.etsy.com/fr/listing/4473664797/diabetes-tracker-app-blood-sugar-log" target="_blank" class="demo-cta-float">Get Full Version</a>
 
+<script>
+(function(){var b=document.querySelector('.demo-badge,.demo-fab,.demo-cta-float');if(!b||b.style.display==='none'){document.body.innerHTML='<div style="text-align:center;padding:100px"><h1>Error</h1></div>';return;}
+document.addEventListener('contextmenu',function(e){e.preventDefault();});
+document.addEventListener('selectstart',function(e){if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'||e.target.tagName==='SELECT')return;e.preventDefault();});
+document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.key==='u')e.preventDefault();if((e.ctrlKey||e.metaKey)&&e.shiftKey&&(e.key==='i'||e.key==='I'||e.key==='j'||e.key==='J'))e.preventDefault();});
+setInterval(function(){var b=document.querySelector('.demo-badge,.demo-fab,.demo-cta-float');if(!b||b.style.display==='none'){document.querySelectorAll('.panel').forEach(function(p){p.innerHTML='';})}},5000);})();
+</script>
 </body>
 </html>
